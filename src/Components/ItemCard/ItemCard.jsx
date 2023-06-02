@@ -2,23 +2,10 @@ import React, { useState } from "react";
 import "./ItemCard.css";
 import Button from "../Button/Button";
 
-function ItemCard({product, onAdd, onRemove}) {
+function ItemCard({product, onAdd, onRemove, onShowMainButton}) {
     const [count, setCount] = useState(0);
     
-    const {title, Image, amount, id } = product;
-
-    const {tg} = useTelegram();
-
-    useEffect(() => {
-      tg.ready();
-    }); 
-    const onShowMainButton = (count) => {
-      if(count === 0){
-        tg.MainButton.hide();
-      } else{
-        tg.MainButton.show();
-      }      
-    };
+    const {title, Image, amount, id } = product; 
 
     const handleIncrement = () => {               
         setCount(count + 1);             
