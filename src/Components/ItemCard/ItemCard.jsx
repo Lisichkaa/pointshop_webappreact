@@ -36,11 +36,11 @@ function ItemCard({product, onAdd, onRemove, onShowMainButton}) {
             
             { (count !== 0) ? (
               <div>              
-               <Button title={"-"} type={"remove"} onClick={handleDecrement} onShowMainButton={onShowMainButton}/>         
-               <Button title={"+"} type={"add"} onClick={handleIncrement} onShowMainButton={onShowMainButton}/>   
+               <Button title={"-"} type={"remove"} onClick={handleDecrement} />         
+               <Button title={"+"} type={"add"} onClick={handleIncrement} />   
                </div>
             ) : (
-              <Button title={"Add"} type={"add"} onClick={handleIncrement} onShowMainButton={onShowMainButton}/>
+              <Button title={"Add"} type={"add"} onClick={handleIncrement}/>
             )}     
           </div>
         </div>
