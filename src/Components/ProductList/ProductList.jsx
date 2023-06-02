@@ -17,44 +17,42 @@ const  ProductList = () => {
 
     //проверяем есть продукт в корзине, если да, то quantity++, если не нашли то quantity = 1
     const onAdd = (product) =>{    
-        console.log(cartItems.length)
       const alreadyAdded = cartItems.find((item)=> item.id === product.id);
-      if(alreadyAdded){
-        setCartItems(
-          cartItems.map((item) =>
-          item.id === product.id ? {...alreadyAdded, quantity: alreadyAdded.quantity + 1} : item
-          )
-        );
-      }
-      else {
-        setCartItems([...cartItems, {...product, quantity: 1}])
-      }          
-      if (cartItems.length >= 1){
+      let newItems = [];
+      if(alreadyAdded) {
+      newItems = cartItems.map( (item) =>
+          item.id === product.id ? {...alreadyAdded, quantity: alreadyAdded.quantity + 1} : item)
+    } else {
+        newItems = [...cartItems, {...product, quantity: 1}]; 
+      }  
+      
+      setCartItems(newItems)
+
+      if (newItems.length >= 1){
         tg.MainButton.show();
       } else {
         tg.MainButton.hide();
-      }
-      console.log(cartItems.length)
     }
+}
   
     const onRemove = (product) => {
       const alreadyAdded = cartItems.find((item)=> item.id === product.id);
+      let newItems = [];
       if(alreadyAdded.quantity === 1){
-        setCartItems(cartItems.filter(item => item.id !== product.id))    
+        newItems = cartItems.filter(item => item.id !== product.id) ; 
       }
       else{
-        setCartItems(cartItems.map(item => 
-          item.id === product.id ? {...alreadyAdded, quantity: alreadyAdded.quantity - 1} : item
-          )
+        newItems = cartItems.map(item => 
+          item.id === product.id ? {...alreadyAdded, quantity: alreadyAdded.quantity - 1} : item      
         );
       } 
-      console.log(cartItems.length)
+      setCartItems(newItems)
+      
       if (cartItems.length >= 1){
         tg.MainButton.show();
       } else {
         tg.MainButton.hide();
       }
-      console.log(cartItems.length)
     };
 
     return (
