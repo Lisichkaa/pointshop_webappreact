@@ -15,10 +15,10 @@ const  ProductList = () => {
       tg.ready();
     });
     
-    const mainButShow = (product) =>{
-        if(product.length === 0) {
+    const mainButShow = (count) =>{
+        if(count === 0) {
             tg.MainButton.hide();
-        } if(product.length >= 0) {
+        } if(count > 0) {
             tg.MainButton.show();        
             }
     }

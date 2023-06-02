@@ -7,18 +7,18 @@ function ItemCard({product, onAdd, onRemove,  mainButShow}) {
     
     const {title, Image, amount, id } = product;
 
-    const handleIncrement = () => {
-        mainButShow(product);
+    const handleIncrement = () => {        
         //onShowMainButton(); 
         setCount(count + 1);             
         onAdd(product);
+        mainButShow(count);
       };
 
     const handleDecrement = () => {
-        //onShowMainButton();
-        mainButShow(product);
+        //onShowMainButton();        
         setCount(count - 1);
         onRemove(product);
+        mainButShow(count);
       };
 
       return (
