@@ -15,6 +15,13 @@ const  ProductList = () => {
       tg.ready();
     });
     
+    const mainButShow = (product) =>{
+        if(product.length === 0) {
+            tg.MainButton.hide();
+        } if(product.length >= 0) {
+            tg.MainButton.show();        
+            }
+    }
     //проверяем есть продукт в корзине, если да, то quantity++, если не нашли то quantity = 1
     const onAdd = (product) =>{    
       const alreadyAdded = cartItems.find((item)=> item.id === product.id);
@@ -29,11 +36,11 @@ const  ProductList = () => {
         setCartItems([...cartItems, {...product, quantity: 1}])
       }    
 
-      if(cartItems.length === 0) {
-        tg.MainButton.hide();
-    } if(cartItems.length >= 0) {
-        tg.MainButton.show();        
-        }
+    //   if(cartItems.length === 0) {
+    //     tg.MainButton.hide();
+    // } if(cartItems.length >= 0) {
+    //     tg.MainButton.show();        
+    //     }
         
     }
   
@@ -48,11 +55,11 @@ const  ProductList = () => {
           )
         );
       } 
-      if(cartItems.length === 0) {
-        tg.MainButton.hide();
-    } if(cartItems.length >= 1) {
-        tg.MainButton.show();        
-        }
+    //   if(cartItems.length === 0) {
+    //     tg.MainButton.hide();
+    // } if(cartItems.length >= 1) {
+    //     tg.MainButton.show();        
+    //     }
     };
   
     // return (
@@ -80,6 +87,7 @@ const  ProductList = () => {
                     key = {item.id}
                     onAdd={onAdd}
                     onRemove={onRemove}
+                    mainButShow={mainButShow}
                     //className={'item'}
                 />
             ))}
