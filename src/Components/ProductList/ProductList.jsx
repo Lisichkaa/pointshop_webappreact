@@ -35,13 +35,11 @@ const  ProductList = () => {
       else {
         setCartItems([...cartItems, {...product, quantity: 1}])
       }    
-
-      if(cartItems.length === 0) {
-        tg.MainButton.hide();
-    } if(cartItems.length >= 1) {
-        tg.MainButton.show();        
-        }
-        
+    //   if(cartItems.length === 0) {
+    //     tg.MainButton.hide();
+    // } if(cartItems.length >= 1) {
+    //     tg.MainButton.show();        
+    //     }        
     }
   
     const onRemove = (product) => {
@@ -55,11 +53,11 @@ const  ProductList = () => {
           )
         );
       } 
-      if(cartItems.length === 0) {
-        tg.MainButton.hide();
-    } if(cartItems.length >= 1) {
-        tg.MainButton.show();        
-        }
+    //   if(cartItems.length === 0 ) {
+    //     tg.MainButton.hide();
+    // } if(cartItems.length >= 1 ) {
+    //     tg.MainButton.show();        
+    //     }
     };
   
     // return (
