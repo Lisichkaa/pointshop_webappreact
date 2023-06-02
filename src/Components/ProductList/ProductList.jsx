@@ -48,7 +48,7 @@ const  ProductList = () => {
       } 
       setCartItems(newItems)
       
-      if (cartItems.length >= 1){
+      if (newItems.length >= 1){
         tg.MainButton.show();
       } else {
         tg.MainButton.hide();
