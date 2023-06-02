@@ -1,0 +1,84 @@
+:root {
+    --primary-color: #9242c4;
+  }
+  
+  .itemCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 150px;
+    height: 200px;
+    padding: 0.3rem 0.3rem;
+    margin: 13px 1px;
+    position: relative;
+  }
+
+  .itemCard__title {
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Press Start 2P';
+  }
+  
+  .itemCard__title .itemCard__price {
+    font-weight: bold;
+    font-family: 'Press Start 2P';
+  }
+
+  .image__container {
+    width: 100px;
+    height: 150px;
+    margin: 0 auto;
+  }
+  
+  .image__container img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .itemCard__price {
+    text-align: center;
+    display: inline-block;
+    font-family: 'Press Start 2P';
+  }
+  
+  .itemCard__badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background-color: #9242c4;
+    border-radius: 80%;
+    transform: translate(20px, -20px) scale(1);
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid #9242c4;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    animation: scaleanimation 1s ease infinite;
+    opacity: 0.8;
+    font-weight: bold;
+    font-family: 'Press Start 2P';
+  }
+
+  
+@keyframes scaleanimation {
+    to {
+      transform: translate(20px, -20px) scale(1.05);
+      opacity: 1;
+    }
+  }
+  
+  .itemCard__badge--hidden {
+    display: none;
+  }

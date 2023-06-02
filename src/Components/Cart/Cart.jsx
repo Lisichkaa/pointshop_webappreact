@@ -1,13 +1,15 @@
 import "./Cart.css";
 import React, {useCallback, useState, useEffect } from "react";
 import Button from "../Button/Button";
+import {useTelegram} from "../../hooks/useTelegram";
 
 function Cart({cartItems, onCheckout, onAdd}){
     
     const totalPrice = cartItems.reduce((a,c)=>a + c.amount * c.quantity, 0);
 
-    const tg = window.Telegram.WebApp;
-    const queryId = tg.initDataUnsafe?.query_id; 
+    const {tg, queryId} = useTelegram();
+    // const tg = window.Telegram.WebApp;
+    // const queryId = tg.initDataUnsafe?.query_id; 
 
     //эта штука должна скрывать мэйн кнопку 
     if(cartItems.length === 0){
@@ -46,7 +48,7 @@ useEffect(() => {
     return (
 
       cartItems, 
-        <div className="cart__container">          
+        <div className="cart__container">     
           <br /> 
           <div className="total">Total amount of points: {totalPrice}</div>          
           {/* <Button
