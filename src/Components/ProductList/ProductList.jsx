@@ -30,7 +30,7 @@ const  ProductList = () => {
       
       if(alreadyAdded.quantity === 0) {
         tg.MainButton.hide();
-    } else if(alreadyAdded.quantity >= 1) {
+        } else {
         tg.MainButton.show();        
         }        
     }
@@ -48,7 +48,7 @@ const  ProductList = () => {
       } 
       if(alreadyAdded.quantity === 0 ) {
         tg.MainButton.hide();
-    } else if(alreadyAdded.quantity >= 1 ) {
+    } else {
         tg.MainButton.show();        
         }
     };
