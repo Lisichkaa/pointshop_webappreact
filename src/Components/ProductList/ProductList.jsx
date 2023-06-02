@@ -34,6 +34,7 @@ const  ProductList = () => {
     } else {
         tg.MainButton.show();        
         }
+        
     }
   
     const onRemove = (product) => {
@@ -47,6 +48,11 @@ const  ProductList = () => {
           )
         );
       } 
+      if(cartItems.length === 0) {
+        tg.MainButton.hide();
+    } else {
+        tg.MainButton.show();        
+        }
     };
   
     // return (
