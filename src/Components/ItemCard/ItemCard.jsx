@@ -2,23 +2,34 @@ import React, { useState } from "react";
 import "./ItemCard.css";
 import Button from "../Button/Button";
 
-function ItemCard({product, onAdd, onRemove,  mainButShow}) {
+function ItemCard({product, onAdd, onRemove}) {
     const [count, setCount] = useState(0);
     
     const {title, Image, amount, id } = product;
 
-    const handleIncrement = () => {        
-        //onShowMainButton(); 
+    const {tg} = useTelegram();
+
+    useEffect(() => {
+      tg.ready();
+    }); 
+    const onShowMainButton = (count) => {
+      if(count === 0){
+        tg.MainButton.hide();
+      } else{
+        tg.MainButton.show();
+      }      
+    };
+
+    const handleIncrement = () => {               
         setCount(count + 1);             
         onAdd(product);
-        mainButShow(count);
+        //mainButShow(count);
       };
 
-    const handleDecrement = () => {
-        //onShowMainButton();        
+    const handleDecrement = () => {              
         setCount(count - 1);
         onRemove(product);
-        mainButShow(count);
+        //mainButShow(count);
       };
 
       return (
@@ -38,11 +49,11 @@ function ItemCard({product, onAdd, onRemove,  mainButShow}) {
             
             { (count !== 0) ? (
               <div>              
-               <Button title={"-"} type={"remove"} onClick={handleDecrement}/>         
-               <Button title={"+"} type={"add"} onClick={handleIncrement} />   
+               <Button title={"-"} type={"remove"} onClick={handleDecrement} onShowMainButton={onShowMainButton}/>         
+               <Button title={"+"} type={"add"} onClick={handleIncrement} onShowMainButton={onShowMainButton}/>   
                </div>
             ) : (
-              <Button title={"Add"} type={"add"} onClick={handleIncrement} />
+              <Button title={"Add"} type={"add"} onClick={handleIncrement} onShowMainButton={onShowMainButton}/>
             )}     
           </div>
         </div>
