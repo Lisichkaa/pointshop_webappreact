@@ -31,7 +31,7 @@ const  ProductList = () => {
 
       if(cartItems.length === 0) {
         tg.MainButton.hide();
-    } else {
+    } if(cartItems.length >= 0) {
         tg.MainButton.show();        
         }
         
@@ -50,7 +50,7 @@ const  ProductList = () => {
       } 
       if(cartItems.length === 0) {
         tg.MainButton.hide();
-    } else {
+    } if(cartItems.length >= 1) {
         tg.MainButton.show();        
         }
     };
