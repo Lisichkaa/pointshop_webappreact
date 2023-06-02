@@ -29,7 +29,7 @@ const  ProductList = () => {
         setCartItems([...cartItems, {...product, quantity: 1}])
       }    
       
-      if (alreadyAdded.quantity > 0){
+      if (cartItems.length > 0){
         tg.MainButton.show();
       } else {
         tg.MainButton.hide();
@@ -48,7 +48,7 @@ const  ProductList = () => {
           )
         );
       } 
-      if (alreadyAdded.quantity > 0){
+      if (cartItems.length > 0){
         tg.MainButton.show();
       } else {
         tg.MainButton.hide();
