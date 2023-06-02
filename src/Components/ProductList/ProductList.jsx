@@ -66,9 +66,6 @@ const  ProductList = () => {
                     key = {item.id}
                     onAdd={onAdd}
                     onRemove={onRemove}
-                    //onShowMainButton={onShowMainButton}
-                    //mainButShow={mainButShow}
-                    //className={'item'}
                 />
             ))}
         </div>
