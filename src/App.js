@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import {useTelegram} from "./hooks/useTelegram";
 import './App.css';
 import {Route, Routes} from 'react-router-dom'
-import ItemCard from "./Components/ProductList/ProductList";
+import ProductList from "./Components/ProductList/ProductList";
 //import Cart from "./Components/Cart/Cart";
-
-//const tg =  window.Telegram.WebApp; 
 
 function App() {
   const {onToggleButton, tg} = useTelegram();

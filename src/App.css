@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,4 +7,19 @@
 body {
   background: var(--tg-theme-bg-color);
   color: var(--tg-theme-text-color);
+} */
+body{
+  background-color: rgba(194, 53, 236, 0.856);
+  color: #fff;
+}
+.products__container{
+  max-width: 390px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.heading{
+  text-align: center;
+  max-width: 390px;
 }

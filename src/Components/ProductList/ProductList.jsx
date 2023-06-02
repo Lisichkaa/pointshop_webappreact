@@ -7,9 +7,10 @@ import ItemCard from '../ItemCard/ItemCard';
 const { getData } = require("../../db/db");
 const products = getData();
 
-function App() {
+const  ProductList = () => {
     const [cartItems, setCartItems] = useState([]);
-    
+    const {tg, queryId} = useTelegram();
+
     useEffect(() => {
       tg.ready();
     });
@@ -42,26 +43,38 @@ function App() {
       } 
     };
   
-    const onShowMainButton = () => {
-      tg.MainButton.text = "Order :)";
-      tg.MainButton.show();
-    };
-  
+    // return (
+    // <>    
+    //     <h1 className="heading">Order points!</h1>
+    // {/* {<Button title={'add'} disable={false} type={'add'}/>
+    // <Button title={'remove'} disable={false} type={'remove'}/>
+    // <Button title={'view order'} disable={false} type={'checkout'}/>} */}  
+    //     <div className='products__container'>
+    //     {products.map( (product) => {
+    //     return <ItemCard product = {product} key = {product.id} onAdd={onAdd} onRemove={onRemove} />; //onShowMainButton={onShowMainButton}
+    //     })  }    
+    //     </div>  
+    //     <Cart cartItems={cartItems} />    
+    // </>  
+    // ); 
     return (
-    <>
-    <h1 className="heading">Order points!</h1>
-    {/* {<Button title={'add'} disable={false} type={'add'}/>
-    <Button title={'remove'} disable={false} type={'remove'}/>
-    <Button title={'view order'} disable={false} type={'checkout'}/>} */}  
-    <div className='products__container'>
-      {products.map( (product) => {
-      return <ItemCard product = {product} key = {product.id} onAdd={onAdd} onRemove={onRemove} />; //onShowMainButton={onShowMainButton}
-    })  }    
-    </div>  
-    <Cart cartItems={cartItems} />    
-    </>  
-    ); 
+        <>
+        <h1 className="heading">Order points!</h1>
+        
+        <div className='products__container'>
+            {products.map(item => (
+                <ItemCard
+                    product={item}
+                    key = {item.id}
+                    onAdd={onAdd}
+                    onRemove={onRemove}
+                    //className={'item'}
+                />
+            ))}
+        </div>
+        </>
+    );
 
-  };
+  };  
 
 export default ProductList;
