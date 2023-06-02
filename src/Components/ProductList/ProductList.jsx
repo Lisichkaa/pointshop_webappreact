@@ -28,7 +28,13 @@ const  ProductList = () => {
       else {
         setCartItems([...cartItems, {...product, quantity: 1}])
       }    
-    };
+
+      if(cartItems.length === 0) {
+        tg.MainButton.hide();
+    } else {
+        tg.MainButton.show();        
+        }
+    }
   
     const onRemove = (product) => {
       const alreadyAdded = cartItems.find((item)=> item.id === product.id);
