@@ -13,7 +13,8 @@ const  ProductList = () => {
 
     useEffect(() => {
       tg.ready();
-    });
+    });   
+    
     //проверяем есть продукт в корзине, если да, то quantity++, если не нашли то quantity = 1
     const onAdd = (product) =>{    
       const alreadyAdded = cartItems.find((item)=> item.id === product.id);
@@ -27,12 +28,6 @@ const  ProductList = () => {
       else {
         setCartItems([...cartItems, {...product, quantity: 1}])
       }    
-      
-      if(alreadyAdded.quantity === 0) {
-        tg.MainButton.hide();
-        } else {
-        tg.MainButton.show();        
-        }        
     }
   
     const onRemove = (product) => {
@@ -46,11 +41,6 @@ const  ProductList = () => {
           )
         );
       } 
-      if(alreadyAdded.quantity === 0 ) {
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton.show();        
-        }
     };
 
     return (
