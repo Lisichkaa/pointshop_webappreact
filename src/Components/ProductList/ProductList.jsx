@@ -17,6 +17,7 @@ const  ProductList = () => {
 
     //проверяем есть продукт в корзине, если да, то quantity++, если не нашли то quantity = 1
     const onAdd = (product) =>{    
+        console.log(cartItems.length)
       const alreadyAdded = cartItems.find((item)=> item.id === product.id);
       if(alreadyAdded){
         setCartItems(
@@ -27,14 +28,13 @@ const  ProductList = () => {
       }
       else {
         setCartItems([...cartItems, {...product, quantity: 1}])
-      }    
-      
-      if (cartItems.length > 0){
+      }          
+      if (cartItems.length >= 1){
         tg.MainButton.show();
       } else {
         tg.MainButton.hide();
       }
-      
+      console.log(cartItems.length)
     }
   
     const onRemove = (product) => {
@@ -48,11 +48,13 @@ const  ProductList = () => {
           )
         );
       } 
-      if (cartItems.length > 0){
+      console.log(cartItems.length)
+      if (cartItems.length >= 1){
         tg.MainButton.show();
       } else {
         tg.MainButton.hide();
       }
+      console.log(cartItems.length)
     };
 
     return (
