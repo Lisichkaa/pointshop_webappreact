@@ -83,7 +83,7 @@ const  ProductList = () => {
             {products.map(item => (
                 <ItemCard
                     product={item}
-                    key = {item.id}
+                    //key = {item.id}
                     onAdd={onAdd}
                     onRemove={onRemove}
                 />
