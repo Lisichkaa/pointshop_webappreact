@@ -20,7 +20,7 @@ const  ProductList = () => {
           //totalAmount: totalAmount,
           queryId,
       }
-      fetch('http://192.168.0.2:3000/web-data', {
+      fetch('http://192.168.0.2:8000/web-data', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
