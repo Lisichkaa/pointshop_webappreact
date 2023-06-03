@@ -11,39 +11,29 @@ function Cart({cartItems, onCheckout, onAdd}){
     // const tg = window.Telegram.WebApp;
     // const queryId = tg.initDataUnsafe?.query_id; 
 
-    //эта штука должна скрывать мэйн кнопку 
-    if(cartItems.length === 0){
-      tg.MainButton.hide();
-    } else {
-      tg.MainButton.show();
-      tg.MainButton.setParams({
-          text: `Order ${totalPrice} points`
-      })
-  }
-
   //слушатель события 
-  const onSendData = useCallback( () => {
-    const data = {
-        products: cartItems,
-        totalPrice: totalPrice,
-        queryId,
-    }    
-    fetch('http://85.119.146.179:8000/web-data', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-    })
-}, [cartItems])
-//
+//   const onSendData = useCallback( () => {
+//     const data = {
+//         products: cartItems,
+//         totalPrice: totalPrice,
+//         queryId,
+//     }    
+//     fetch('http://85.119.146.179:8000/web-data', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(data)
+//     })
+// }, [cartItems])
+// //
 
-useEffect(() => {
-    tg.onEvent('mainButtonClicked', onSendData)
-    return () => {
-        tg.offEvent('mainButtonClicked', onSendData)
-    }
-}, [onSendData])
+// useEffect(() => {
+//     tg.onEvent('mainButtonClicked', onSendData)
+//     return () => {
+//         tg.offEvent('mainButtonClicked', onSendData)
+//     }
+// }, [onSendData])
 
     return (
 

@@ -7,9 +7,12 @@ import ItemCard from '../ItemCard/ItemCard';
 const { getData } = require("../../db/db");
 const products = getData();
 
+
 const  ProductList = () => {
     const [cartItems, setCartItems] = useState([]);
     const {tg, queryId} = useTelegram();
+
+    const totalAmount = cartItems.reduce((a,c)=>a + c.amount * c.quantity, 0);
 
     useEffect(() => {
       tg.ready();
@@ -58,7 +61,7 @@ const  ProductList = () => {
     return (
         <>
         <h1 className="heading">Order points!</h1>
-        
+
         <div className='products__container'>
             {products.map(item => (
                 <ItemCard
@@ -68,6 +71,10 @@ const  ProductList = () => {
                     onRemove={onRemove}
                 />
             ))}
+        </div>        
+        <div className="totalAmount__container">     
+          <br /> 
+          <div className="total">Total amount of points: {totalAmount}</div>               
         </div>
         </>
     );
