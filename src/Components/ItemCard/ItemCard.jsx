@@ -5,7 +5,7 @@ import Button from "../Button/Button";
 function ItemCard({product, onAdd, onRemove}) {
     const [count, setCount] = useState(0);
     
-    const {title, Image, amount, id } = products; 
+    const {title, Image, amount, id } = product; 
 
     const handleIncrement = () => {               
         setCount(count + 1);             
