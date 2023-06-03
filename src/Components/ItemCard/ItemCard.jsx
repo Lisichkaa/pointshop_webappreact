@@ -2,21 +2,19 @@ import React, { useState } from "react";
 import "./ItemCard.css";
 import Button from "../Button/Button";
 
-function ItemCard({product, onAdd, onRemove, onShowMainButton}) {
+function ItemCard({product, onAdd, onRemove}) {
     const [count, setCount] = useState(0);
     
-    const {title, Image, amount, id } = product; 
+    const {title, Image, amount, id } = products; 
 
     const handleIncrement = () => {               
         setCount(count + 1);             
         onAdd(product);
-        //mainButShow(count);
       };
 
     const handleDecrement = () => {              
         setCount(count - 1);
         onRemove(product);
-        //mainButShow(count);
       };
 
       return (
