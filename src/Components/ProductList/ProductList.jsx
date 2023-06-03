@@ -17,22 +17,22 @@ const  ProductList = () => {
     const onSendData = useCallback(() => {
       const data = {
           //products: cartItems,
-          //totalPrice: getTotalPrice(addedItems),
+          //totalAmount: totalAmount,
           queryId,
       }
-      fetch('http://192.168.0.2:8000/web-data', {
+      fetch('http://77.105.172.214:8000/web-data', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
           },
           body: JSON.stringify(data)
       })
-  }, [addedItems])
+  }, [cartItems])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
         return () => {
-            tg.offEvent('mainButtonClicked', onSendData)
+           tg.offEvent('mainButtonClicked', onSendData)
         }
     }, [onSendData])
 
@@ -53,8 +53,8 @@ const  ProductList = () => {
         tg.MainButton.show();
       } else {
         tg.MainButton.hide();        
+      }
     }
-}
     const onRemove = (product) => {
       const alreadyAdded = cartItems.find((item)=> item.id === product.id);
       let newItems = [];
@@ -71,8 +71,7 @@ const  ProductList = () => {
       if (newItems.length >= 1){
         tg.MainButton.show();
       } else {
-        tg.MainButton.hide();
-        
+        tg.MainButton.hide();        
       }
     };
 
