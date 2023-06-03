@@ -53,6 +53,8 @@ const  ProductList = () => {
         tg.MainButton.show();
       } else {
         tg.MainButton.hide();
+        tg.MainButton.setParams({
+          text: `Купить ${totalAmount}`})
     }
 }  
     const onRemove = (product) => {
