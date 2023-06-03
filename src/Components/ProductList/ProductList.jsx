@@ -16,25 +16,25 @@ const  ProductList = () => {
 
     const onSendData = useCallback(() => {
       const data = {
-          //products: cartItems,
-          //totalAmount: totalAmount,
+          products: addedItems,
+          totalPrice: totalAmount,
           queryId,
       }
-      fetch('http://77.105.172.214:8000/web-data', {
+      fetch('http://192.168.0.2:8000/web-data', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
           },
           body: JSON.stringify(data)
       })
-  }, [cartItems])
+  }, [addedItems])
 
-    useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendData)
-        return () => {
-           tg.offEvent('mainButtonClicked', onSendData)
-        }
-    }, [onSendData])
+  useEffect(() => {
+      tg.onEvent('mainButtonClicked', onSendData)
+      return () => {
+          tg.offEvent('mainButtonClicked', onSendData)
+      }
+  }, [onSendData])
 
     //проверяем есть продукт в корзине, если да, то quantity++, если не нашли то quantity = 1
     const onAdd = (product) =>{    
@@ -55,8 +55,9 @@ const  ProductList = () => {
           text: `Купить`})
       } else {
         tg.MainButton.hide()        
-      }
+      } 
     }
+
     const onRemove = (product) => {
       const alreadyAdded = cartItems.find((item)=> item.id === product.id);
       let newItems = [];
@@ -73,9 +74,12 @@ const  ProductList = () => {
       if (newItems.length >= 1){
         tg.MainButton.show();
       } else {
-        tg.MainButton.hide();        
+        tg.MainButton.hide(); 
+        tg.MainButton.setParams({
+          text: `Купить ${getTotalPrice(newItems)}`
+          })       
       }
-    };
+    }
 
     return (
         <>
@@ -98,6 +102,6 @@ const  ProductList = () => {
         </>
     );
 
-  };  
+};  
 
 export default ProductList;
