@@ -52,7 +52,10 @@ const  ProductList = () => {
       if (newItems.length >= 1){
         tg.MainButton.show();
       } else {
-        tg.MainButton.hide();        
+        tg.MainButton.hide()
+        tg.MainButton.setParams({
+          text: `Купить`
+        })
       }
     }
     const onRemove = (product) => {
