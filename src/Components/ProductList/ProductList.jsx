@@ -29,12 +29,12 @@ const  ProductList = () => {
       })
   }, [addedItems])
 
-  useEffect(() => {
-      tg.onEvent('mainButtonClicked', onSendData)
-      return () => {
-          tg.offEvent('mainButtonClicked', onSendData)
-      }
-  }, [onSendData])
+    useEffect(() => {
+        tg.onEvent('mainButtonClicked', onSendData)
+        return () => {
+            tg.offEvent('mainButtonClicked', onSendData)
+        }
+    }, [onSendData])
 
     //проверяем есть продукт в корзине, если да, то quantity++, если не нашли то quantity = 1
     const onAdd = (product) =>{    
@@ -52,11 +52,9 @@ const  ProductList = () => {
       if (newItems.length >= 1){
         tg.MainButton.show();
       } else {
-        tg.MainButton.hide();
-        tg.MainButton.setParams({
-          text: `Купить ${totalAmount}`})
+        tg.MainButton.hide();        
     }
-}  
+}
     const onRemove = (product) => {
       const alreadyAdded = cartItems.find((item)=> item.id === product.id);
       let newItems = [];
@@ -74,8 +72,7 @@ const  ProductList = () => {
         tg.MainButton.show();
       } else {
         tg.MainButton.hide();
-        tg.MainButton.setParams({
-          text: `Купить ${totalAmount}`})
+        
       }
     };
 
