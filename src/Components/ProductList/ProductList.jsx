@@ -74,10 +74,7 @@ const  ProductList = () => {
       if (newItems.length >= 1){
         tg.MainButton.show();
       } else {
-        tg.MainButton.hide(); 
-        tg.MainButton.setParams({
-          text: `Купить ${getTotalPrice(newItems)}`
-          })       
+        tg.MainButton.hide();          
       }
     }
 
@@ -93,10 +90,10 @@ const  ProductList = () => {
                 />
             ))}
         </div>        
-        <div className="totalAmount__container">     
+        {/* <div className="totalAmount__container">     
           <br /> 
-          <div className="total">Total amount of points: {window.Telegram}</div>               
-        </div>
+          <div className="total">Total amount of points: {}</div>               
+        </div> */}
         </>
     );
 

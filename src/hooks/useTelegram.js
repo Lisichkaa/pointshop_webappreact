@@ -1,5 +1,4 @@
 const tg = window.Telegram.WebApp;
-console.log(window.Telegram);
 
 export function useTelegram() {    
 
