@@ -16,7 +16,7 @@ const  ProductList = () => {
 
     const onSendData = useCallback(() => {
       const data = {
-          //products: cartItems,
+          products: cartItems,
           //totalPrice: totalAmount,
           queryId: queryId,
       }
@@ -82,9 +82,7 @@ const  ProductList = () => {
     }
 
     return (
-        <>
-        <h1 className="heading">Order points!</h1>
-
+        <>      
         <div className='products__container'>
             {products.map(item => (
                 <ItemCard
@@ -95,10 +93,10 @@ const  ProductList = () => {
                 />
             ))}
         </div>        
-        <div className="totalAmount__container">     
+        {/* <div className="totalAmount__container">     
           <br /> 
           <div className="total">Total amount of points: {totalAmount}</div>               
-        </div>
+        </div> */}
         </>
     );
 
