@@ -23,13 +23,6 @@
     background-color:#e71111e4;
   }
   
-  /* .btn.checkout {
-    background-color: #00ce00;
-    width: 180px;
-    color: #fff;
-    font-size: 25px;
-  } */
-  
   .btn:active {
     transform: scale(0.98);
   }
@@ -48,10 +41,3 @@
   .btn.remove:active {
     background-color: #c91515
   }
-  
-  /* .btn.checkout:hover {
-    background-color: #00B900
-  }
-  .btn.checkout:active {
-    background-color: #009000
-  } */

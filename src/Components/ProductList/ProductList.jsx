@@ -10,7 +10,7 @@ const products = getData();
 
 const  ProductList = () => {
     const [cartItems, setCartItems] = useState([]);
-    const {tg, queryId, onClose } = useTelegram();
+    const {tg, queryId} = useTelegram();
 
     //const totalAmount = cartItems.reduce((a,c)=>a + c.amount * c.quantity, 0);
 
@@ -27,21 +27,21 @@ const  ProductList = () => {
           },
           body: JSON.stringify(data)
       })
-  } )
+  }, [queryId])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
         return () => {
             tg.offEvent('mainButtonClicked', onSendData)
        }
-   }, [onSendData])
+   }, [onSendData, tg])
 
     //проверяем есть продукт в корзине, если да, то quantity++, если не нашли то quantity = 1
     const onAdd = (product) =>{    
       const alreadyAdded = cartItems.find((item)=> item.id === product.id);
       let newItems = [];
       if(alreadyAdded) {
-      newItems = cartItems.map( (item) =>
+        newItems = cartItems.map( (item) =>
           item.id === product.id ? {...alreadyAdded, quantity: alreadyAdded.quantity + 1} : item)
     } else {
         newItems = [...cartItems, {...product, quantity: 1}]; 
@@ -84,7 +84,7 @@ const  ProductList = () => {
             {products.map(item => (
                 <ItemCard
                     product={item}
-                    key = {item.id}
+                    //key = {item.id} - я хз что это...
                     onAdd={onAdd}
                     onRemove={onRemove}
                 />

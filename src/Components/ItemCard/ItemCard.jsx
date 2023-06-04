@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./ItemCard.css";
 import Button from "../Button/Button";
 
-function ItemCard({product, onAdd, onRemove}) {
+function ItemCard ({product, onAdd, onRemove}) {
     const [count, setCount] = useState(0);
     
     const {title, Image, amount, id } = product; 
@@ -44,5 +44,4 @@ function ItemCard({product, onAdd, onRemove}) {
         </div>
       );
     }
-
     export default ItemCard;
