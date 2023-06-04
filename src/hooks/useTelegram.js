@@ -5,6 +5,8 @@ export function useTelegram() {
     const onClose = () => {
         tg.close()
     }
+    
+    console.log(window.Telegram);
 
     return {     
         onClose,   

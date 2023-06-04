@@ -82,7 +82,8 @@ const  ProductList = () => {
     }
 
     return (
-        <>      
+        <>    
+        <h4>{window.Telegram} </h4>  
         <div className='products__container'>
             {products.map(item => (
                 <ItemCard
