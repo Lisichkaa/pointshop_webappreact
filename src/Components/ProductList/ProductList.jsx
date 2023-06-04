@@ -52,7 +52,7 @@ const  ProductList = () => {
       if (newItems.length >= 1){
         tg.MainButton.show();
         tg.MainButton.setParams({
-          text: `Купить`})
+          text: `fdfgds ${queryId}` })
       } else {
         tg.MainButton.hide()        
       } 
