@@ -18,7 +18,7 @@ const  ProductList = () => {
       const data = {
           //products: cartItems,
           //totalPrice: totalAmount,
-          queryId,
+          queryId: queryId,
       }
       fetch('http://192.168.0.2:8000/web-data', {
           method: 'POST',
@@ -29,12 +29,12 @@ const  ProductList = () => {
       })
   }, [cartItems])
 
-  useEffect(() => {
-      tg.onEvent('mainButtonClicked', onSendData)
-      return () => {
-          tg.offEvent('mainButtonClicked', onSendData)
-      }
-  }, [onSendData])
+    useEffect(() => {
+        tg.onEvent('mainButtonClicked', onSendData)
+        return () => {
+            tg.offEvent('mainButtonClicked', onSendData)
+       }
+   }, [onSendData])
 
     //проверяем есть продукт в корзине, если да, то quantity++, если не нашли то quantity = 1
     const onAdd = (product) =>{    
