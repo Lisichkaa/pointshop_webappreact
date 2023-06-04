@@ -48,7 +48,7 @@ const  ProductList = () => {
       }  
       
       setCartItems(newItems)
-
+      //вот это для кнопки в тг логика,  
       if (newItems.length >= 1){
         tg.MainButton.show();
         tg.MainButton.setParams({
@@ -57,7 +57,7 @@ const  ProductList = () => {
         tg.MainButton.hide()        
       } 
     }
-
+    //тут удаляем предметы из корзины
     const onRemove = (product) => {
       const alreadyAdded = cartItems.find((item)=> item.id === product.id);
       let newItems = [];
