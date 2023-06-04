@@ -10,7 +10,7 @@ const products = getData();
 
 const  ProductList = () => {
     const [cartItems, setCartItems] = useState([]);
-    const {tg, queryId} = useTelegram();
+    const {tg, queryId, onClose } = useTelegram();
 
     //const totalAmount = cartItems.reduce((a,c)=>a + c.amount * c.quantity, 0);
 
@@ -30,11 +30,11 @@ const  ProductList = () => {
   }, [cartItems])
 
     useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendData)
+        tg.onEvent('mainButtonClicked', onClose)
         return () => {
             tg.offEvent('mainButtonClicked', onSendData)
        }
-   }, [onSendData])
+   }, [onClose, onSendData])
 
     //проверяем есть продукт в корзине, если да, то quantity++, если не нашли то quantity = 1
     const onAdd = (product) =>{    
