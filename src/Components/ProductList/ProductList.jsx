@@ -12,7 +12,7 @@ const  ProductList = () => {
     const [cartItems, setCartItems] = useState([]);
     const {tg, queryId} = useTelegram();
 
-    const totalAmount = cartItems.reduce((a,c)=>a + c.amount * c.quantity, 0);
+    //const totalAmount = cartItems.reduce((a,c)=>a + c.amount * c.quantity, 0);
 
     const onSendData = useCallback(() => {
       const data = {
