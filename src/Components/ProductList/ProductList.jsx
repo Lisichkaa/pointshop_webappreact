@@ -82,8 +82,7 @@ const  ProductList = () => {
     }
 
     return (
-        <>    
-        <h4>{window.Telegram} </h4>  
+        <>
         <div className='products__container'>
             {products.map(item => (
                 <ItemCard
@@ -94,10 +93,10 @@ const  ProductList = () => {
                 />
             ))}
         </div>        
-        {/* <div className="totalAmount__container">     
+        <div className="totalAmount__container">     
           <br /> 
-          <div className="total">Total amount of points: {totalAmount}</div>               
-        </div> */}
+          <div className="total">Total amount of points: {window.Telegram}</div>               
+        </div>
         </>
     );
 
