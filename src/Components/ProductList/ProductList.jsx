@@ -16,9 +16,9 @@ const  ProductList = () => {
 
     const onSendData = useCallback(() => {
       const data = {
-          products: cartItems,
+          //products: cartItems,
           //totalPrice: totalAmount,
-          queryId: queryId,
+          queryId,
       }
       fetch('http://192.168.0.2:8000/web-data', {
           method: 'POST',
@@ -27,12 +27,12 @@ const  ProductList = () => {
           },
           body: JSON.stringify(data)
       })
-  }, [cartItems, queryId])
+  }, [])
 
     useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendData)
+        tg.onEvent('mainButtonClicked', onClose)
         return () => {
-            tg.offEvent('mainButtonClicked', onClose)
+            tg.offEvent('mainButtonClicked', onSendData)
        }
    }, [onSendData, onClose])
 
